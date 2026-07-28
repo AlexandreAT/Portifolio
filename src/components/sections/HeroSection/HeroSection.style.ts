@@ -107,5 +107,5 @@ export const Image = styled.img`
   display: block;
   width: 100%;
   height: auto;
-  clip-path: inset(0 2px 0 0);
+  clip-path: inset(0 35px 0 0);
 `;
