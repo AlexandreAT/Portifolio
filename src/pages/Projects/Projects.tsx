@@ -10,7 +10,7 @@ const Projects = () => {
       <PageHeader>
         <span>Portfólio</span>
         <h1>Projetos</h1>
-        <p>Produtos que combinam desenvolvimento full stack, experiência de uso e decisões técnicas pensadas para cada contexto.</p>
+        <p>Aplicações web desenvolvidas para praticar e consolidar conhecimentos de frontend, backend, APIs, autenticação e bancos de dados.</p>
       </PageHeader>
       <Grid>
         {orderedProjects.map((project) => <ProjectCard key={project.id} project={project} />)}

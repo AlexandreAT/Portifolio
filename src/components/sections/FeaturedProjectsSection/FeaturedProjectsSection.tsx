@@ -14,7 +14,7 @@ export const FeaturedProjectsSection = () => {
   return (
     <MotionSection id="projetos-em-destaque">
       <SectionHeader>
-        <SectionTitle label="Projetos em destaque" title="Trabalhos que conectam produto e tecnologia" />
+        <SectionTitle label="Projetos em destaque" />
         <Button to="/projetos" variant="secondary" showArrow>Ver todos os projetos</Button>
       </SectionHeader>
       <Grid>

@@ -18,8 +18,19 @@ const buttonStyles = css<ButtonStyleProps>`
   background: transparent;
   font-size: 0.9rem;
   font-weight: 650;
+  white-space: nowrap;
   cursor: pointer;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    white-space: nowrap;
+  }
+
+  svg { flex: 0 0 auto; }
 
   ${({ $variant, theme }) =>
     $variant === 'primary' &&

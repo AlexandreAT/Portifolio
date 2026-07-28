@@ -103,6 +103,7 @@ export const SocialAnchor = styled.a`
   gap: 0.45rem;
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 0.76rem;
+  white-space: nowrap;
 
   &:hover { color: ${({ theme }) => theme.colors.text}; }
 `;

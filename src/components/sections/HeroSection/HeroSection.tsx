@@ -11,7 +11,6 @@ import {
   Hero,
   HeroContent,
   Image,
-  ImageDecoration,
   LastName,
 } from './HeroSection.style';
 
@@ -44,8 +43,7 @@ export const HeroSection = () => {
             <Button
               href={profile.resumeUrl}
               variant="secondary"
-              disabled={!profile.resumeUrl}
-              title={!profile.resumeUrl ? 'Adicione public/curriculo.pdf para ativar' : undefined}
+              external
             >
               <FiFileText aria-hidden="true" /> Acessar currículo
             </Button>
@@ -58,9 +56,7 @@ export const HeroSection = () => {
           animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
           transition={{ duration: 0.55, delay: 0.12 }}
         >
-          <ImageDecoration aria-hidden="true" />
-          <Image src={profile.profileImage} alt="Placeholder da foto profissional de Alexandre Arribamar" />
-          <span>Substitua pela sua foto</span>
+          <Image src={profile.profileImage} alt={`Foto profissional de ${profile.fullName}`} />
         </Frame>
       </HeroContent>
       <TechnologyCarousel />

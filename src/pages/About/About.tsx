@@ -1,6 +1,7 @@
-import { FiBriefcase, FiCalendar } from 'react-icons/fi';
+import { FiAward, FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import { ContactSection } from '@/components/sections/ContactSection/ContactSection';
-import { courses, education, experiences, profile, skillCategories } from '@/data/portfolio.data';
+import { certificates, education, experiences, profile, skillCategories } from '@/data/portfolio.data';
 import { getIcon } from '@/utils/icons';
 import {
   AboutCopy,
@@ -8,6 +9,7 @@ import {
   EducationGrid,
   Intro,
   Page,
+  PersonalMeta,
   Section,
   SkillCard,
   SkillsGrid,
@@ -19,8 +21,14 @@ const About = () => (
   <Page>
     <Intro>
       <span>Sobre mim</span>
-      <h1>Desenvolvimento com repertório de produto e design.</h1>
-      <AboutCopy>{profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</AboutCopy>
+      <h1>Minha trajetória profissional.</h1>
+      <AboutCopy>
+        {profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <PersonalMeta>
+          <span><FiMapPin aria-hidden="true" /> {profile.location}</span>
+          {profile.languages.map((language) => <span key={language}>{language}</span>)}
+        </PersonalMeta>
+      </AboutCopy>
     </Intro>
 
     <Section>
@@ -42,7 +50,7 @@ const About = () => (
     </Section>
 
     <Section>
-      <header><span>Base acadêmica</span><h2>Formação e cursos</h2></header>
+      <header><span>Base acadêmica</span><h2>Formação e certificações</h2></header>
       <EducationGrid>
         {education.map((item) => (
           <CourseCard key={item.id}>
@@ -50,10 +58,15 @@ const About = () => (
             <div><h3>{item.course}</h3><p>{item.institution}</p><span>{item.period}</span></div>
           </CourseCard>
         ))}
-        {courses.map((course) => (
-          <CourseCard key={course.id}>
-            <FiCalendar aria-hidden="true" />
-            <div><h3>{course.name}</h3>{course.institution && <p>{course.institution}</p>}{course.status && <span>{course.status}</span>}</div>
+        {certificates.map((certificate) => (
+          <CourseCard key={certificate.id}>
+            <FiAward aria-hidden="true" />
+            <div>
+              <h3>{certificate.title}</h3>
+              <p>{certificate.instructor}</p>
+              <span>{certificate.date}</span>
+              <Link to={`/certificados/${certificate.slug}`}>Ver certificado</Link>
+            </div>
           </CourseCard>
         ))}
       </EducationGrid>

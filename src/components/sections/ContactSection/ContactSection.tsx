@@ -10,7 +10,7 @@ export const ContactSection = () => (
       <Copy>
         <span>Vamos conversar?</span>
         <h2>Tem uma oportunidade ou projeto em mente? Vamos conversar.</h2>
-        <p>Estou aberto a novas oportunidades profissionais, projetos e boas conversas sobre tecnologia e produto.</p>
+        <p>Estou aberto a novas oportunidades profissionais, projetos e boas conversas sobre desenvolvimento de software.</p>
       </Copy>
       <ContactGrid>
         {contactOptions.map((option) => {

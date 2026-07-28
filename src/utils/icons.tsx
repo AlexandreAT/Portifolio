@@ -1,5 +1,5 @@
 import type { IconType } from 'react-icons';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import {
   FiBox,
   FiBriefcase,
@@ -37,7 +37,7 @@ const icons: Record<IconName, IconType> = {
   docker: SiDocker,
   git: SiGit,
   github: FaGithub,
-  linkedin: FaLinkedinIn,
+  linkedin: FaLinkedin,
   email: FiMail,
   document: FiFileText,
   devices: FiSmartphone,

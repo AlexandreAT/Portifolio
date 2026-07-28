@@ -67,15 +67,9 @@ export const Header = () => {
               </SocialAnchor>
             );
           })}
-          {profile.resumeUrl ? (
-            <ResumeLink href={profile.resumeUrl} target="_blank" rel="noreferrer">
-              <FiFileText aria-hidden="true" /> Currículo
-            </ResumeLink>
-          ) : (
-            <ResumeLink as="span" $disabled title="Adicione public/curriculo.pdf para ativar">
-              <FiFileText aria-hidden="true" /> Currículo
-            </ResumeLink>
-          )}
+          <ResumeLink href={profile.resumeUrl} target="_blank" rel="noreferrer">
+            <FiFileText aria-hidden="true" /> Currículo
+          </ResumeLink>
         </DesktopActions>
 
         <MenuButton

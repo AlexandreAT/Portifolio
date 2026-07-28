@@ -36,16 +36,21 @@ export type ProjectCategory =
 
 export interface PortfolioProfile {
   name: string;
+  fullName: string;
   firstName: string;
   lastName: string;
   role: string;
+  headline: string;
   availability: string;
   introduction: string;
   complementaryDescription: string;
   about: string[];
   email: string;
+  phone: string;
+  location: string;
+  languages: string[];
   profileImage: string;
-  resumeUrl?: string;
+  resumeUrl: string;
 }
 
 export interface SocialLink {
@@ -122,11 +127,16 @@ export interface Education {
   period: string;
 }
 
-export interface Course {
+export interface Certificate {
   id: string;
-  name: string;
-  institution?: string;
-  status?: string;
+  slug: string;
+  title: string;
+  courseUrl: string;
+  quote: string;
+  instructor: string;
+  date: string;
+  duration: string;
+  pdfUrl: string;
 }
 
 export interface SkillCategory {

@@ -21,7 +21,7 @@ export const Intro = styled.section`
   padding: clamp(4rem, 8vw, 7rem) 0;
 
   > span { position: absolute; align-self: start; color: ${({ theme }) => theme.colors.primary}; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-  h1 { margin: 2rem 0 0; font-size: clamp(2.8rem, 6vw, 5.6rem); line-height: 0.98; letter-spacing: -0.06em; }
+  h1 { margin: 2rem 0 0; font-size: clamp(2.7rem, 5vw, 4.7rem); line-height: 1; letter-spacing: -0.055em; }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) { grid-template-columns: 1fr; align-items: start; }
 `;
@@ -29,6 +29,24 @@ export const Intro = styled.section`
 export const AboutCopy = styled.div`
   p { color: ${({ theme }) => theme.colors.textSecondary}; line-height: 1.76; }
   p:last-child { margin-bottom: 0; }
+`;
+
+export const PersonalMeta = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.65rem;
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: ${({ theme }) => theme.radii.pill};
+    color: ${({ theme }) => theme.colors.textMuted};
+    font-size: 0.72rem;
+  }
 `;
 
 export const Section = styled.section`
@@ -77,6 +95,7 @@ export const CourseCard = styled.article`
   h3 { margin: 0 0 0.55rem; font-size: 0.95rem; line-height: 1.4; }
   p { margin: 0 0 0.3rem; color: ${({ theme }) => theme.colors.textSecondary}; }
   span { color: ${({ theme }) => theme.colors.textMuted}; font-size: 0.74rem; }
+  a { display: block; margin-top: 0.75rem; color: ${({ theme }) => theme.colors.primary}; font-size: 0.72rem; }
 `;
 
 export const SkillsGrid = styled.div`

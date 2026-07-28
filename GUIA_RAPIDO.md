@@ -1,60 +1,46 @@
-# Guia rápido para terminar seu portfólio
+# Guia rápido
 
-Você vai mexer principalmente em **um arquivo**:
+## Alterar textos e informações
+
+Abra:
 
 `src/data/portfolio.data.ts`
 
-## 1. Trocar textos, links e projetos
+Ali estão perfil, contatos, tecnologias, projetos, experiências, formação e certificados.
 
-Abra `src/data/portfolio.data.ts` e procure:
+## Trocar a foto
 
-- `profile` para nome, apresentação, e-mail e currículo;
-- `socialLinks` para GitHub e LinkedIn;
-- `technologies` para o carrossel;
-- `projects` para adicionar ou editar projetos;
-- `experiences`, `education` e `courses` para sua história profissional.
+Substitua `src/assets/images/BannerPerfil.png` por outra imagem com o mesmo nome ou altere o import no arquivo de dados.
 
-Use `Ctrl + F` e pesquise por `TODO`. São os pontos que ainda precisam de você.
+## Trocar uma capa de projeto
 
-## 2. Trocar sua foto
+1. Coloque a imagem em `src/assets/images/`.
+2. Importe-a no início de `src/data/portfolio.data.ts`.
+3. Troque o valor de `coverImage` no projeto.
 
-1. Coloque a foto em `src/assets/images/profile/`.
-2. No topo de `src/data/portfolio.data.ts`, troque o arquivo importado.
+## Adicionar um certificado
 
-## 3. Trocar imagens dos projetos
+1. Coloque o PDF em `src/assets/documents/certificates/`.
+2. Importe o PDF no arquivo de dados.
+3. Copie um item do array `certificates` e altere título, professor, link, descrição, data, duração e `slug`.
 
-1. Coloque as imagens em `src/assets/images/projects/`.
-2. Importe a imagem no topo de `src/data/portfolio.data.ts`.
-3. No projeto, troque o valor de `coverImage`.
+## Adicionar um ícone
 
-Use imagens em 16:9, como `1600 × 900`.
+1. Adicione o nome em `src/types/portfolio.types.ts`.
+2. Importe o ícone em `src/utils/icons.tsx`.
+3. Relacione o nome ao ícone no objeto `icons`.
 
-## 4. Adicionar o currículo
-
-1. Coloque o PDF em `public/curriculo.pdf`.
-2. Em `profile`, troque para `resumeUrl: '/curriculo.pdf'`.
-
-## 5. Adicionar um ícone que faltou
-
-1. Adicione o nome do ícone em `src/types/portfolio.types.ts`, dentro de `IconName`.
-2. Importe e relacione o ícone em `src/utils/icons.tsx`.
-3. Use esse nome em `src/data/portfolio.data.ts`.
-
-## 6. Ver o site
-
-Abra o terminal nesta pasta e rode:
+## Ver o site
 
 ```bash
 npm run dev
 ```
 
-Depois abra `http://localhost:5174`.
+Abra `http://localhost:5174`.
 
-Para conferir se está tudo certo antes de publicar:
+## Conferir antes de publicar
 
 ```bash
 npm run lint
 npm run build
 ```
-
-O README possui exemplos mais detalhados se você precisar.

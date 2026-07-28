@@ -94,40 +94,8 @@ export const Actions = styled.div`
 `;
 
 export const Frame = styled.div`
-  position: relative;
-  isolation: isolate;
   width: min(100%, 520px);
-  aspect-ratio: 0.96;
   justify-self: end;
-  overflow: hidden;
-  border: 1px solid transparent;
-  border-radius: 36% 5% 5% 5%;
-  background:
-    linear-gradient(#071426, #071426) padding-box,
-    ${({ theme }) => theme.gradients.brand} border-box;
-  box-shadow: ${({ theme }) => theme.shadows.glow};
-
-  &::before {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background:
-      radial-gradient(circle at 70% 20%, rgba(139, 92, 246, 0.22), transparent 45%),
-      linear-gradient(135deg, rgba(34, 199, 242, 0.07), transparent 60%);
-    content: '';
-  }
-
-  > span {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    padding: 0.42rem 0.65rem;
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    border-radius: ${({ theme }) => theme.radii.pill};
-    color: ${({ theme }) => theme.colors.textMuted};
-    background: rgba(3, 10, 20, 0.72);
-    font-size: 0.64rem;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: min(100%, 500px);
@@ -136,19 +104,7 @@ export const Frame = styled.div`
 `;
 
 export const Image = styled.img`
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-export const ImageDecoration = styled.div`
-  position: absolute;
-  z-index: 2;
-  top: 2rem;
-  left: 2rem;
-  width: 88px;
-  height: 88px;
-  opacity: 0.28;
-  background-image: radial-gradient(circle, ${({ theme }) => theme.colors.primary} 1.5px, transparent 1.5px);
-  background-size: 14px 14px;
+  height: auto;
 `;

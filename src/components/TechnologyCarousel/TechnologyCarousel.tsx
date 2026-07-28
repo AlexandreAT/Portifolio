@@ -14,7 +14,7 @@ import {
 } from './TechnologyCarousel.style';
 
 export const TechnologyCarousel = () => {
-  const { emblaRef, scrollPrev, scrollNext, registerInteraction } = useTechnologyCarousel();
+  const { emblaRef, scrollPrev, scrollNext } = useTechnologyCarousel();
 
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -41,7 +41,6 @@ export const TechnologyCarousel = () => {
           ref={emblaRef}
           tabIndex={0}
           onKeyDown={handleKeyDown}
-          onPointerUp={registerInteraction}
           aria-label="Carrossel de tecnologias. Use as setas do teclado para navegar."
         >
           <Slides>

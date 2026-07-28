@@ -1,11 +1,16 @@
-import brasilCompeteCover from '@/assets/images/projects/brasil-compete.svg';
-import odisseiaCover from '@/assets/images/projects/odisseia-wiki.svg';
-import pomodoroCover from '@/assets/images/projects/pomodoro.svg';
-import profilePlaceholder from '@/assets/images/profile/profile-placeholder.svg';
+import profileImage from '@/assets/images/BannerPerfil.png';
+import gameHubCover from '@/assets/images/GameHubBanner.png';
+import guidingGraceCover from '@/assets/images/GuidingGraceBanner.png';
+import odisseiaCover from '@/assets/images/OdisseiaWikiBanner.png';
+import resumePdf from '@/assets/documents/curriculo-alexandre-arribamar.pdf';
+import solidCertificatePdf from '@/assets/documents/certificates/csharp-solid.pdf';
+import oopCertificatePdf from '@/assets/documents/certificates/csharp-completo.pdf';
+import csharpEssentialCertificatePdf from '@/assets/documents/certificates/csharp-essencial.pdf';
+import frontendCertificatePdf from '@/assets/documents/certificates/formacao-frontend.pdf';
 import {
   ProjectStatus,
+  type Certificate,
   type ContactOption,
-  type Course,
   type Differential,
   type Education,
   type Experience,
@@ -18,22 +23,27 @@ import {
 
 export const profile: PortfolioProfile = {
   name: 'Alexandre Arribamar',
+  fullName: 'Alexandre Arribamar Teizen',
   firstName: 'Alexandre',
   lastName: 'Arribamar',
   role: 'Desenvolvedor Full Stack',
+  headline: 'Full Stack Developer | ASP.NET Core | React | TypeScript',
   availability: 'Disponível para novas oportunidades',
   introduction:
-    'Desenvolvo aplicações web e mobile completas, trabalhando desde a interface e experiência do usuário até APIs, regras de negócio e bancos de dados.',
+    'Desenvolvo e evoluo aplicações web e mobile, atuando em interfaces, APIs, integrações, regras de negócio e bancos de dados.',
   complementaryDescription:
-    'Este é o meu portfólio, onde apresento meus principais projetos, experiências e conhecimentos.',
+    'Busco construir soluções práticas, organizadas e fáceis de manter.',
   about: [
-    'Sou Desenvolvedor Full Stack e atuo no desenvolvimento e evolução de aplicações web e mobile, trabalhando com interfaces, APIs, integrações, regras de negócio e bancos de dados.',
-    'Antes de atuar diretamente com desenvolvimento, trabalhei com Product Design e Design Systems. Essa experiência me deu uma visão mais ampla sobre usabilidade, componentes, consistência visual e necessidades reais de produto.',
+    'Sou Desenvolvedor Full Stack e trabalho com aplicações web e mobile, participando da implementação de interfaces, APIs, integrações, regras de negócio e camadas de dados.',
+    'Desde 2024, atuo na SMARTBREEDER, em uma Plataforma de Inteligência Agronômica Digital. No dia a dia, contribuo com novas funcionalidades, componentes reutilizáveis, correções, refatorações e evolução contínua das aplicações.',
+    'Antes de ingressar profissionalmente no desenvolvimento, trabalhei em funções administrativas na Split Peças / Refrigeração Lima e na WW Assessoria Contábil. Essa trajetória fortaleceu minha organização, comunicação e compreensão de rotinas operacionais.',
   ],
   email: 'alexandre.arribamar@gmail.com',
-  profileImage: profilePlaceholder,
-  // TODO: coloque o PDF em public/curriculo.pdf e use '/curriculo.pdf'.
-  resumeUrl: undefined,
+  phone: '+55 (18) 99754-9884',
+  location: 'Lucélia, SP — Brasil',
+  languages: ['Português — nativo', 'Inglês — intermediário'],
+  profileImage,
+  resumeUrl: resumePdf,
 };
 
 export const socialLinks: SocialLink[] = [
@@ -47,9 +57,8 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    value: 'Adicione seu perfil',
-    // TODO: adicione a URL completa do LinkedIn.
-    url: undefined,
+    value: '/in/alexandre-arribamar-5743501a4',
+    url: 'https://www.linkedin.com/in/alexandre-arribamar-5743501a4/',
     icon: 'linkedin',
   },
 ];
@@ -57,9 +66,10 @@ export const socialLinks: SocialLink[] = [
 export const technologies: Technology[] = [
   { id: 'csharp', name: 'C#', icon: 'csharp', color: '#9B4FCE' },
   { id: 'dotnet', name: 'ASP.NET Core', icon: 'dotnet', color: '#6D4AFF' },
-  { id: 'ef-core', name: 'Entity Framework', icon: 'dotnet', color: '#8B5CF6' },
+  { id: 'ef-core', name: 'Entity Framework Core', icon: 'dotnet', color: '#8B5CF6' },
   { id: 'react', name: 'React', icon: 'react', color: '#61DAFB' },
   { id: 'react-native', name: 'React Native', icon: 'react', color: '#61DAFB' },
+  { id: 'angular', name: 'Angular', icon: 'code', color: '#DD0031' },
   { id: 'typescript', name: 'TypeScript', icon: 'typescript', color: '#3178C6' },
   { id: 'mysql', name: 'MySQL', icon: 'mysql', color: '#4479A1' },
   { id: 'sqlserver', name: 'SQL Server', icon: 'sqlserver', color: '#E54848' },
@@ -73,29 +83,29 @@ export const differentials: Differential[] = [
     id: 'complete-development',
     title: 'Desenvolvimento completo',
     description:
-      'Atuação em diferentes camadas da aplicação, da interface à API e aos dados, entregando soluções organizadas e completas.',
+      'Atuação na implementação de interfaces, APIs, regras de negócio, integrações e camadas de dados.',
     icon: 'layers',
   },
   {
     id: 'web-mobile',
     title: 'Web e Mobile',
     description:
-      'Experiência no desenvolvimento de aplicações responsivas para web e aplicativos mobile com React Native.',
+      'Experiência na evolução de aplicações web responsivas e aplicativos mobile com React Native.',
     icon: 'devices',
   },
   {
-    id: 'product',
-    title: 'Experiência com Produto',
+    id: 'quality',
+    title: 'Qualidade e manutenção',
     description:
-      'Visão de produto para compreender requisitos, problemas do usuário e transformar necessidades em soluções práticas.',
-    icon: 'product',
+      'Atenção à organização do código, componentização, refatoração e facilidade de manutenção.',
+    icon: 'code',
   },
   {
-    id: 'design-systems',
-    title: 'Design Systems',
+    id: 'continuous-improvement',
+    title: 'Evolução contínua',
     description:
-      'Experiência anterior com Product Design e Design Systems, criando interfaces consistentes, reutilizáveis e centradas no usuário.',
-    icon: 'design',
+      'Participação em análise de requisitos, correção de problemas e melhoria gradual das aplicações.',
+    icon: 'tools',
   },
 ];
 
@@ -107,7 +117,7 @@ export const projects: Project[] = [
     shortDescription:
       'Plataforma full stack para organizar e apresentar informações de um universo de RPG.',
     description:
-      'Plataforma full stack para organizar e apresentar informações de um universo de RPG, incluindo personagens, cidades, raças, itens, páginas e conteúdos de lore.',
+      'Plataforma colaborativa para centralizar personagens, cidades, raças, itens, fichas e conteúdos de lore, com gerenciamento administrativo e páginas públicas responsivas.',
     role: 'Desenvolvimento Full Stack',
     category: 'Full Stack',
     technologies: [
@@ -118,102 +128,130 @@ export const projects: Project[] = [
       'MySQL',
       'JWT',
       'Styled Components',
+      'Axios',
+      'Cloudinary',
+      'Docker',
     ],
     platform: 'Web',
-    status: ProjectStatus.IN_DEVELOPMENT,
+    status: ProjectStatus.ONLINE,
     coverImage: odisseiaCover,
+    projectUrl: 'https://odisseiawiki.netlify.app',
     repositoryUrl: 'https://github.com/AlexandreAT/OdisseiaWiki',
     featured: true,
     priority: 1,
     caseStudy: {
       overview:
-        'Uma wiki colaborativa criada para transformar um universo de RPG extenso em uma experiência de consulta visual, organizada e fácil de manter.',
-      problem:
-        'Informações de personagens, lugares, itens e lore ficavam distribuídas em fontes diferentes, dificultando a consulta durante a campanha.',
+        'Uma plataforma colaborativa que reúne conteúdos de um universo de RPG em páginas públicas e em uma área administrativa de gerenciamento.',
       objective:
-        'Centralizar o conteúdo e permitir que ele seja cadastrado, relacionado e consultado de forma clara por jogadores e responsáveis pela campanha.',
-      audience: 'Jogadores e criadores de campanhas de RPG.',
-      participation:
-        'Responsável pela experiência, interface, arquitetura frontend e integração com a API e banco de dados.',
+        'Centralizar e facilitar o cadastro, a organização e a consulta de conteúdos de RPG.',
+      audience:
+        'Jogadores, mestres e criadores de campanhas e universos de RPG.',
       features: [
-        'Páginas de wiki com blocos de conteúdo',
-        'Busca e navegação por entidades relacionadas',
-        'Gestão de personagens, cidades, raças e itens',
-        'Autenticação e áreas de gerenciamento',
-        'Upload e organização de imagens',
+        'Wiki dinâmica e busca global',
+        'Gerenciamento de personagens, cidades, raças, itens e fichas',
+        'Editor Rich Text e galerias de imagens',
+        'Área administrativa e autenticação Google',
       ],
       architecture:
-        'Frontend React com TypeScript e Styled Components integrado a uma API ASP.NET Core com Entity Framework Core e MySQL.',
+        'Aplicação cliente-servidor em camadas, com frontend React, API REST em ASP.NET Core e banco MySQL.',
       technicalDecisions: [
-        'Componentes tipados e estilos separados',
-        'Conteúdo estruturado em blocos reutilizáveis',
-        'Rotas específicas para os diferentes tipos de entidade',
-      ],
-      learnings: [
-        'Evolução incremental de um produto full stack',
-        'Organização de interfaces ricas em conteúdo',
-        'Integração de upload, edição e apresentação de mídia',
+        'Uso de DTOs, Services e Repositories para separar responsabilidades e facilitar manutenção e evolução.',
       ],
     },
   },
   {
-    id: 'brasil-compete',
-    slug: 'brasil-compete',
-    title: 'Brasil Compete',
+    id: 'gamehub',
+    slug: 'gamehub',
+    title: 'GameHub',
     shortDescription:
-      'Agenda e resultados de competições internacionais com participação brasileira.',
+      'Rede social full stack para descobrir jogos, participar de comunidades e organizar uma biblioteca pessoal.',
     description:
-      'Plataforma web e mobile para centralizar competições internacionais que possuem participação de brasileiros, reunindo agenda, resultados e informações sobre onde acompanhar os eventos.',
-    role: 'Desenvolvimento de Produto',
-    category: 'Web e Mobile',
+      'Rede social para jogadores criarem perfis e comunidades, compartilharem publicações, interagirem com outros usuários e organizarem sua biblioteca de jogos.',
+    role: 'Desenvolvimento Full Stack',
+    category: 'Full Stack',
     technologies: [
-      'React Native',
-      'Expo',
+      'React',
       'TypeScript',
-      'Expo Router',
-      'TanStack Query',
-      'AsyncStorage',
+      'Vite',
+      'ASP.NET Core 8',
+      'C#',
+      'MongoDB Atlas',
+      'JWT',
+      'BCrypt',
+      'Docker',
+      'IGDB API',
     ],
-    platform: 'Web e Mobile',
-    status: ProjectStatus.IN_DEVELOPMENT,
-    coverImage: brasilCompeteCover,
+    platform: 'Web',
+    status: ProjectStatus.ONLINE,
+    coverImage: gameHubCover,
+    projectUrl: 'https://projectgamehub.netlify.app',
+    repositoryUrl: 'https://github.com/AlexandreAT/GameHub',
     featured: true,
     priority: 2,
     caseStudy: {
       overview:
-        'Produto em desenvolvimento para facilitar o acompanhamento de atletas brasileiros em diferentes competições internacionais.',
+        'Uma rede social voltada a jogos, reunindo descoberta, organização de biblioteca e interação entre usuários e comunidades.',
       objective:
-        'Reunir agenda, resultados e caminhos para transmissão em uma experiência consistente para web e mobile.',
-      audience: 'Pessoas que acompanham o esporte brasileiro em eventos internacionais.',
+        'Reunir descoberta, organização e interação social sobre jogos em uma única plataforma.',
+      audience:
+        'Jogadores interessados em descobrir títulos, organizar seus jogos e participar de comunidades.',
       features: [
-        'Agenda de competições',
-        'Organização por modalidades e eventos',
-        'Resultados e informações de acompanhamento',
+        'Perfis, seguidores e comunidades',
+        'Publicações, comentários e reações',
+        'Descoberta de jogos e biblioteca pessoal',
+        'Integração com a IGDB API',
+      ],
+      architecture:
+        'SPA React desacoplada de uma API REST em ASP.NET Core, com MongoDB e autenticação JWT.',
+      technicalDecisions: [
+        'Separação entre frontend e backend, autenticação baseada em claims e integrações externas protegidas pela API.',
       ],
     },
   },
   {
-    id: 'pomodoro',
-    slug: 'pomodoro',
-    title: 'Pomodoro',
+    id: 'guiding-grace',
+    slug: 'guiding-grace',
+    title: 'Guiding Grace',
     shortDescription:
-      'Aplicativo de produtividade para organizar ciclos de foco e descanso.',
+      'Plataforma web que organiza guias, builds, mecânicas e rotas de progressão de Elden Ring.',
     description:
-      'Aplicativo de produtividade baseado na técnica Pomodoro, com foco em organização, concentração e evolução futura para tarefas, agenda, anotações e gamificação.',
-    role: 'Desenvolvimento Mobile',
-    category: 'Mobile',
-    technologies: ['React Native', 'Expo', 'TypeScript', 'Styled Components'],
-    platform: 'Mobile',
-    status: ProjectStatus.IN_DEVELOPMENT,
-    coverImage: pomodoroCover,
+      'Guia interativo em português para acompanhar a progressão em Elden Ring. Reúne mapas, regiões, builds e conteúdos organizados em uma interface responsiva inspirada na identidade visual do jogo.',
+    role: 'Desenvolvimento Front-end',
+    category: 'Frontend',
+    technologies: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'React Router DOM',
+      'Styled Components',
+      'Redux',
+      'React Icons',
+    ],
+    platform: 'Web',
+    status: ProjectStatus.ONLINE,
+    coverImage: guidingGraceCover,
+    projectUrl: 'https://guidinggrace.netlify.app',
+    repositoryUrl: 'https://github.com/AlexandreAT/Guiding-Grace',
     featured: true,
     priority: 3,
     caseStudy: {
       overview:
-        'Aplicativo mobile focado em uma experiência direta para controlar ciclos de foco e descanso.',
+        'Um guia visual e interativo em português para consultar regiões, mapas, builds e conteúdos de progressão de Elden Ring.',
       objective:
-        'Criar uma base simples e extensível para produtividade pessoal, com espaço para tarefas, agenda e gamificação no futuro.',
-      features: ['Temporizador de foco', 'Ciclos de descanso', 'Interface otimizada para uso rápido'],
+        'Centralizar informações de Elden Ring e oferecer uma progressão visual, organizada e fácil de consultar.',
+      audience:
+        'Jogadores iniciantes, veteranos retornando ao jogo e pessoas que desejam seguir builds ou completar a jornada.',
+      features: [
+        'Seleção de guias e builds',
+        'Navegação por regiões e conteúdo em seções expansíveis',
+        'Mapas interativos com zoom e legendas',
+        'Sidebar responsiva',
+      ],
+      architecture:
+        'SPA componentizada, com separação entre páginas, componentes reutilizáveis, hooks, estilos e dados estáticos tipados.',
+      technicalDecisions: [
+        'Uso de conteúdo estático tipado e componentes reutilizáveis para simplificar a manutenção, preservar a performance e facilitar a inclusão de novas regiões e guias.',
+      ],
     },
   },
 ];
@@ -225,26 +263,40 @@ export const experiences: Experience[] = [
     company: 'SMARTBREEDER',
     period: '2024 — atual',
     description:
-      'Atuação em uma Plataforma de Inteligência Agronômica Digital, evoluindo aplicações web e mobile.',
+      'Atuação em uma Plataforma de Inteligência Agronômica Digital, desenvolvendo soluções web e mobile para apoiar a gestão, a produtividade e a sustentabilidade no agronegócio.',
     highlights: [
-      'APIs, integrações e regras de negócio',
-      'Modelagem e otimização de dados',
-      'Componentes reutilizáveis',
-      'Correções, refatorações e análise de requisitos',
+      'Desenvolvimento e evolução de aplicações web e mobile',
+      'APIs, integrações entre sistemas e regras de negócio',
+      'Modelagem e otimização da camada de dados',
+      'Componentes reutilizáveis, correções e refatorações',
+      'Análise de requisitos e colaboração na definição de soluções técnicas',
     ],
   },
   {
-    id: 'product-design',
-    role: 'Product Designer',
-    company: 'Hurb, Ubook/Audimo e Onawa',
-    period: 'Experiência anterior',
+    id: 'split-pecas',
+    role: 'Assistente Administrativo',
+    company: 'Split Peças / Refrigeração Lima',
+    period: '2019 — 2024',
     description:
-      'Experiência com produtos digitais e Design Systems, hoje aplicada à criação de interfaces consistentes e soluções centradas no usuário.',
+      'Atuação nas operações administrativas e comerciais de uma empresa especializada em peças e equipamentos para refrigeração.',
     highlights: [
-      'Product Design e UX',
-      'Design Systems',
-      'Prototipação e componentes reutilizáveis',
-      'Comunicação entre design e desenvolvimento',
+      'Gerenciamento das operações da loja virtual e cadastro de produtos',
+      'Controle de estoque, mercadorias e inventário',
+      'Emissão de notas fiscais e apoio administrativo e comercial',
+      'Atendimento, vendas, pós-venda e produção de materiais visuais',
+    ],
+  },
+  {
+    id: 'ww-assessoria',
+    role: 'Assistente Administrativo',
+    company: 'WW Assessoria Contábil',
+    period: '2017 — 2019',
+    description:
+      'Apoio às rotinas administrativas e financeiras de um escritório contábil.',
+    highlights: [
+      'Emissão e conferência de notas e documentos fiscais',
+      'Controle de cobranças, pagamentos e prazos',
+      'Atendimento a clientes e suporte às demandas operacionais',
     ],
   },
 ];
@@ -253,42 +305,86 @@ export const education: Education[] = [
   {
     id: 'computer-science',
     course: 'Bacharelado em Ciência da Computação',
-    institution: 'FAI',
+    institution: 'FAI — Faculdades Adamantinenses Integradas',
     period: '2019 — 2022',
   },
   {
     id: 'technical-it',
     course: 'Técnico em Informática',
-    institution: 'ETEC',
+    institution: 'ETEC — Escola Técnica Estadual de São Paulo',
     period: '2017 — 2018',
   },
 ];
 
-export const courses: Course[] = [
+export const certificates: Certificate[] = [
   {
-    id: 'continuous-learning',
-    name: 'Cursos e estudos contínuos em React, React Native, C# e arquitetura de software',
-    status: 'Em atualização',
+    id: 'solid-pratica',
+    slug: 'csharp-principios-solid-na-pratica',
+    title: 'C# — Aplicando Princípios SOLID na prática',
+    courseUrl: 'https://www.udemy.com/course/c-aplicando-principios-solid-na-pratica/?couponCode=26BBPAA2MX',
+    quote: 'Domine os pilares da orientação a objetos e escreva código limpo de verdade',
+    instructor: 'Jose Carlos Macoratti',
+    date: '21 de setembro de 2025',
+    duration: '9 horas',
+    pdfUrl: solidCertificatePdf,
   },
-  // TODO: adicione aqui os cursos e certificados que deseja destacar.
+  {
+    id: 'csharp-essential',
+    slug: 'curso-csharp-essencial',
+    title: 'Curso C# Essencial (.NET 9.0, LINQ e IA)',
+    courseUrl: 'https://www.udemy.com/course/curso-c-essencial-2023-bonus-linq/?couponCode=26BBPAA2MX',
+    quote: 'Formação completa em C# moderno com .NET 9, LINQ e Inteligência Artificial',
+    instructor: 'Jose Carlos Macoratti',
+    date: '21 de setembro de 2025',
+    duration: '47 horas',
+    pdfUrl: csharpEssentialCertificatePdf,
+  },
+  {
+    id: 'csharp-completo',
+    slug: 'csharp-completo-orientacao-a-objetos',
+    title: 'C# COMPLETO Programação Orientada a Objetos + Projetos',
+    courseUrl: 'https://www.udemy.com/course/programacao-orientada-a-objetos-csharp/?couponCode=26BBPAA2MX',
+    quote: 'Curso mais didático e completo de C# e OO: composição, herança, coleções, arquivos, LINQ, lambda, delegates e muito mais',
+    instructor: 'Nelio Alves',
+    date: '11 de agosto de 2022',
+    duration: '38 horas',
+    pdfUrl: oopCertificatePdf,
+  },
+  {
+    id: 'frontend-completo',
+    slug: 'formacao-frontend',
+    title: 'Formação Front-end — HTML, CSS, JavaScript, React e +',
+    courseUrl: 'https://www.udemy.com/course/formacao-front-end-html-css-javascript-react-e/?couponCode=26BBPAA2MX',
+    quote: 'Aprenda front-end através de uma formação completa com diversos projetos para você criar seu portfólio',
+    instructor: 'Matheus Battisti',
+    date: '5 de fevereiro de 2024',
+    duration: '50,5 horas',
+    pdfUrl: frontendCertificatePdf,
+  },
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
+    id: 'languages',
+    title: 'Linguagens',
+    icon: 'code',
+    skills: ['C#', 'TypeScript', 'JavaScript', 'SQL'],
+  },
+  {
     id: 'frontend',
     title: 'Frontend',
     icon: 'react',
-    skills: ['React', 'React Native', 'TypeScript', 'HTML', 'CSS', 'Styled Components', 'Vite'],
+    skills: ['React', 'React Native', 'Angular', 'HTML5', 'CSS3', 'Styled Components'],
   },
   {
     id: 'backend',
     title: 'Backend',
-    icon: 'code',
-    skills: ['C#', 'ASP.NET Core', 'Entity Framework Core', 'LINQ', 'APIs REST', 'JWT', 'Swagger'],
+    icon: 'dotnet',
+    skills: ['ASP.NET Core', 'Entity Framework Core', 'LINQ', 'REST APIs', 'JWT Authentication'],
   },
   {
     id: 'data',
-    title: 'Dados',
+    title: 'Banco de dados',
     icon: 'sqlserver',
     skills: ['MySQL', 'SQL Server', 'MongoDB'],
   },
@@ -296,19 +392,13 @@ export const skillCategories: SkillCategory[] = [
     id: 'architecture',
     title: 'Arquitetura',
     icon: 'layers',
-    skills: ['SOLID', 'Injeção de dependência', 'DTOs', 'Serviços', 'Repositórios', 'Separação em camadas', 'Modelagem de domínio'],
+    skills: ['Arquitetura em camadas', 'DTOs', 'Dependency Injection'],
   },
   {
     id: 'tools',
     title: 'Ferramentas',
     icon: 'tools',
-    skills: ['Git', 'GitHub', 'Docker', 'Postman', 'Expo', 'EAS'],
-  },
-  {
-    id: 'product-design',
-    title: 'Produto e Design',
-    icon: 'design',
-    skills: ['Product Design', 'Design Systems', 'UX', 'Componentes reutilizáveis', 'Prototipação'],
+    skills: ['Git', 'Docker', 'Swagger'],
   },
 ];
 
@@ -332,7 +422,7 @@ export const contactOptions: ContactOption[] = [
   {
     id: 'resume',
     label: 'Currículo',
-    value: profile.resumeUrl ? 'Baixar PDF' : 'Adicione o arquivo PDF',
+    value: 'Abrir PDF',
     description: 'Resumo profissional',
     url: profile.resumeUrl,
     icon: 'document',
@@ -348,9 +438,9 @@ export const homeSummaryCards = [
   },
   {
     id: 'applications',
-    title: 'Tipos de aplicações',
+    title: 'Atuação',
     icon: 'devices' as const,
-    items: ['Aplicações web', 'Aplicações mobile', 'APIs', 'Sistemas internos', 'Plataformas completas'],
+    items: ['Aplicações web', 'Aplicações mobile', 'APIs REST', 'Integrações', 'Bancos de dados'],
   },
   {
     id: 'education',
@@ -360,8 +450,8 @@ export const homeSummaryCards = [
   },
   {
     id: 'other-skills',
-    title: 'Outras competências',
-    icon: 'product' as const,
-    items: ['Bancos SQL e NoSQL', 'Autenticação e autorização', 'Arquitetura em camadas', 'Product Design', 'Design Systems'],
+    title: 'Práticas e ferramentas',
+    icon: 'tools' as const,
+    items: ['Arquitetura em camadas', 'DTOs', 'Dependency Injection', 'Git', 'Docker'],
   },
 ];

@@ -9,7 +9,7 @@ export const AboutSummarySection = () => (
   <MotionSection id="sobre-mim-resumo" className="surface-section">
     <Content>
       <Copy>
-        <SectionTitle label="Sobre mim" title="Código com visão de produto" />
+        <SectionTitle label="Sobre mim" title="Desenvolvimento com atenção à qualidade" />
         {profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         <Button to="/sobre-mim" variant="secondary" showArrow>Ler mais sobre mim</Button>
       </Copy>

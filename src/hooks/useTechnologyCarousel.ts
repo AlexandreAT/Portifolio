@@ -1,105 +1,68 @@
 import { useCallback, useEffect, useRef } from 'react';
-import Autoplay from 'embla-carousel-autoplay';
+import AutoScroll from 'embla-carousel-auto-scroll';
 import useEmblaCarousel from 'embla-carousel-react';
 
-export const AUTOPLAY_INITIAL_DELAY = 2_000;
-export const AUTOPLAY_INTERVAL = 2_800;
-export const AUTOPLAY_RESUME_DELAY = 10_000;
+export const AUTO_SCROLL_SPEED = 0.45;
+export const AUTO_SCROLL_START_DELAY = 800;
 
 export const useTechnologyCarousel = () => {
-  const autoplay = useRef(
-    Autoplay({
-      delay: AUTOPLAY_INTERVAL,
+  const autoScroll = useRef(
+    AutoScroll({
+      speed: AUTO_SCROLL_SPEED,
+      startDelay: AUTO_SCROLL_START_DELAY,
       playOnInit: false,
       stopOnInteraction: false,
       stopOnMouseEnter: false,
+      stopOnFocusIn: false,
     }),
   );
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: 'start', containScroll: false },
-    [autoplay.current],
+    {
+      loop: true,
+      align: 'start',
+      containScroll: false,
+      dragFree: true,
+    },
+    [autoScroll.current],
   );
-  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const initialTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const isPointerInteraction = useRef(false);
-  const reduceMotion = useRef(false);
 
-  const clearResumeTimer = useCallback(() => {
-    if (resumeTimer.current) {
-      clearTimeout(resumeTimer.current);
-      resumeTimer.current = null;
-    }
+  const resumeContinuousScroll = useCallback(() => {
+    autoScroll.current.reset();
   }, []);
-
-  const scheduleResume = useCallback(() => {
-    if (!emblaApi || reduceMotion.current || document.hidden) return;
-    clearResumeTimer();
-    resumeTimer.current = setTimeout(() => {
-      autoplay.current.play();
-    }, AUTOPLAY_RESUME_DELAY);
-  }, [clearResumeTimer, emblaApi]);
-
-  const registerInteraction = useCallback(() => {
-    autoplay.current.stop();
-    scheduleResume();
-  }, [scheduleResume]);
 
   const scrollPrev = useCallback(() => {
     emblaApi?.scrollPrev();
-    registerInteraction();
-  }, [emblaApi, registerInteraction]);
+    resumeContinuousScroll();
+  }, [emblaApi, resumeContinuousScroll]);
 
   const scrollNext = useCallback(() => {
     emblaApi?.scrollNext();
-    registerInteraction();
-  }, [emblaApi, registerInteraction]);
+    resumeContinuousScroll();
+  }, [emblaApi, resumeContinuousScroll]);
 
   useEffect(() => {
     if (!emblaApi) return;
-    const autoplayPlugin = autoplay.current;
+    const autoScrollPlugin = autoScroll.current;
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    reduceMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const handlePointerDown = () => {
-      isPointerInteraction.current = true;
-      autoplayPlugin.stop();
-      clearResumeTimer();
-    };
-
-    const handleSettle = () => {
-      if (!isPointerInteraction.current) return;
-      isPointerInteraction.current = false;
-      scheduleResume();
-    };
-
-    const handleVisibility = () => {
-      if (document.hidden) {
-        autoplayPlugin.stop();
-        clearResumeTimer();
-      } else if (!reduceMotion.current) {
-        scheduleResume();
+    const syncPlayback = () => {
+      if (document.hidden || mediaQuery.matches) {
+        autoScrollPlugin.stop();
+      } else {
+        autoScrollPlugin.play(document.hidden ? undefined : 0);
       }
     };
 
-    if (!reduceMotion.current) {
-      initialTimer.current = setTimeout(() => {
-        if (!document.hidden) autoplayPlugin.play();
-      }, AUTOPLAY_INITIAL_DELAY);
-    }
-
-    emblaApi.on('pointerDown', handlePointerDown);
-    emblaApi.on('settle', handleSettle);
-    document.addEventListener('visibilitychange', handleVisibility);
+    syncPlayback();
+    document.addEventListener('visibilitychange', syncPlayback);
+    mediaQuery.addEventListener('change', syncPlayback);
 
     return () => {
-      emblaApi.off('pointerDown', handlePointerDown);
-      emblaApi.off('settle', handleSettle);
-      document.removeEventListener('visibilitychange', handleVisibility);
-      autoplayPlugin.stop();
-      clearResumeTimer();
-      if (initialTimer.current) clearTimeout(initialTimer.current);
+      document.removeEventListener('visibilitychange', syncPlayback);
+      mediaQuery.removeEventListener('change', syncPlayback);
+      autoScrollPlugin.stop();
     };
-  }, [clearResumeTimer, emblaApi, scheduleResume]);
+  }, [emblaApi]);
 
-  return { emblaRef, scrollPrev, scrollNext, registerInteraction };
+  return { emblaRef, scrollPrev, scrollNext };
 };

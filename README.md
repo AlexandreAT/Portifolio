@@ -1,132 +1,99 @@
 # Portfólio — Alexandre Arribamar
 
-Portfólio profissional feito com React, TypeScript, Vite, Styled Components, React Router, Framer Motion e Embla Carousel.
+Portfólio profissional desenvolvido com React, TypeScript, Vite, Styled Components, React Router, Framer Motion e Embla Carousel.
 
 ## Rodar o projeto
 
-1. Abra esta pasta no terminal.
-2. Instale as dependências: `npm install`
-3. Inicie o site: `npm run dev`
-4. Abra `http://localhost:5174`
+```bash
+npm install
+npm run dev
+```
 
-Para conferir a versão de produção:
+Abra `http://localhost:5174`.
+
+Para verificar e gerar a versão de produção:
 
 ```bash
+npm run lint
 npm run build
 npm run preview
 ```
 
-## Onde alterar cada coisa
+## Conteúdo do portfólio
 
-Quase todo o conteúdo está em um único arquivo:
+Os dados exibidos estão centralizados em:
 
 `src/data/portfolio.data.ts`
 
-Nele você pode editar:
+Nesse arquivo ficam:
 
-- `profile`: nome, cargo, apresentação, e-mail, foto e currículo;
-- `socialLinks`: GitHub e LinkedIn;
-- `technologies`: tecnologias do carrossel;
-- `differentials`: os quatro diferenciais;
-- `projects`: todos os projetos e estudos de caso;
-- `experiences`: experiências profissionais;
-- `education`: formação;
-- `courses`: cursos;
-- `skillCategories`: tecnologias da página Sobre mim.
+- perfil, apresentação, localização, idiomas e currículo;
+- GitHub, LinkedIn e e-mail;
+- tecnologias e diferenciais;
+- projetos, stacks, links e detalhes técnicos;
+- experiências profissionais;
+- formação e competências;
+- certificados, professores, descrições e PDFs.
 
-Procure por `TODO` nesse arquivo para encontrar o que ainda falta completar.
+## Imagens
 
-## Trocar a foto
+- Foto: `src/assets/images/BannerPerfil.png`
+- Odisseia Wiki: `src/assets/images/OdisseiaWikiBanner.png`
+- GameHub: `src/assets/images/GameHubBanner.png`
+- Guiding Grace: `src/assets/images/GuidingGraceBanner.png`
 
-1. Coloque sua foto em `src/assets/images/profile/`.
-2. No começo de `src/data/portfolio.data.ts`, troque o import do placeholder pelo arquivo novo.
-3. Mantenha `profileImage: profilePlaceholder` ou renomeie a variável importada.
+As capas de projeto funcionam melhor em proporção 16:9.
 
-Prefira uma imagem vertical em `.webp`, `.png` ou `.jpg`, com fundo removido ou escuro. O site usa `object-fit: cover`.
+## Currículo e certificados
 
-## Trocar imagens dos projetos
+Os documentos usados pelo site possuem nomes seguros para o Vite:
 
-1. Coloque as imagens em `src/assets/images/projects/`.
-2. Importe cada imagem no início de `src/data/portfolio.data.ts`.
-3. No projeto desejado, altere `coverImage` para a imagem importada.
+- currículo: `src/assets/documents/curriculo-alexandre-arribamar.pdf`;
+- certificados: `src/assets/documents/certificates/`.
 
-Exemplo:
+Os PDFs originais enviados permanecem preservados em `src/assets/images/`.
 
-```ts
-import minhaImagem from '@/assets/images/projects/meu-projeto.webp';
+Para cadastrar outro certificado:
 
-coverImage: minhaImagem,
-```
+1. Coloque o PDF em `src/assets/documents/certificates/`.
+2. Importe-o em `src/data/portfolio.data.ts`.
+3. Adicione um item ao array `certificates`.
 
-Use imagens na proporção 16:9; por exemplo, `1600 × 900`.
+Cada certificado recebe automaticamente uma página em `/certificados/:slug`.
 
-## Adicionar um projeto
+## Ícones
 
-Dentro de `projects`, copie um objeto existente e altere os dados. Os campos principais são:
+1. Adicione o nome em `IconName`, dentro de `src/types/portfolio.types.ts`.
+2. Importe e relacione o ícone em `src/utils/icons.tsx`.
+3. Use o nome em `src/data/portfolio.data.ts`.
 
-- `slug`: endereço do projeto, sem espaços; exemplo `meu-projeto`;
-- `title`: nome exibido;
-- `shortDescription`: texto do card;
-- `description`: descrição completa;
-- `technologies`: lista de tecnologias;
-- `status`: use uma opção de `ProjectStatus`;
-- `coverImage`: imagem importada;
-- `featured`: `true` mostra na Home;
-- `priority`: número menor aparece primeiro;
-- `caseStudy`: conteúdo da página de detalhes.
+Os ícones podem ser importados de `react-icons/si`, `react-icons/fa` ou `react-icons/fi`.
 
-Se um link não existe, deixe o campo de URL vazio ou remova-o. Nunca use `#`.
+## Cores
 
-## Adicionar ou trocar ícones
+As cores, gradientes, bordas e breakpoints ficam em:
 
-Os ícones vêm da biblioteca React Icons.
+`src/styles/theme.ts`
 
-1. Abra `src/types/portfolio.types.ts` e adicione um nome em `IconName`.
-2. Abra `src/utils/icons.tsx`.
-3. Importe o ícone de `react-icons/si`, `react-icons/fa` ou `react-icons/fi`.
-4. Adicione o ícone no objeto `icons`.
-5. Use o nome novo em `src/data/portfolio.data.ts`.
+## Carrossel de tecnologias
 
-Exemplo:
+O movimento contínuo é configurado em:
 
-```ts
-import { SiPython } from 'react-icons/si';
+`src/hooks/useTechnologyCarousel.ts`
 
-python: SiPython,
-```
+- `AUTO_SCROLL_SPEED`: velocidade linear;
+- `AUTO_SCROLL_START_DELAY`: espera antes do início.
 
-## Adicionar o currículo
+## Ícone da aba
 
-1. Coloque o PDF dentro da pasta `public` com o nome `curriculo.pdf`.
-2. Em `src/data/portfolio.data.ts`, altere:
+O favicon está em `public/favicon.svg` e é carregado por `index.html`.
 
-```ts
-resumeUrl: '/curriculo.pdf',
-```
+## Rotas
 
-O botão será ativado automaticamente.
+- `/` — início;
+- `/projetos` — projetos;
+- `/projetos/:slug` — detalhes do projeto;
+- `/sobre-mim` — trajetória, formação e competências;
+- `/certificados/:slug` — certificado e PDF.
 
-## Alterar cores
-
-Abra `src/styles/theme.ts`. As cores principais ficam em `colors` e os gradientes em `gradients`.
-
-## Alterar o carrossel
-
-Abra `src/hooks/useTechnologyCarousel.ts`.
-
-- `AUTOPLAY_INITIAL_DELAY`: espera inicial;
-- `AUTOPLAY_INTERVAL`: tempo entre avanços;
-- `AUTOPLAY_RESUME_DELAY`: espera depois que a pessoa arrasta, clica ou usa o teclado.
-
-Os valores estão em milissegundos. `10_000` equivale a 10 segundos.
-
-## Comandos úteis
-
-- `npm run dev`: abre o ambiente de desenvolvimento;
-- `npm run lint`: verifica a qualidade do código;
-- `npm run build`: verifica o TypeScript e gera a versão de produção;
-- `npm run preview`: abre a versão de produção localmente.
-
-## Publicar
-
-O arquivo `public/_redirects` já configura o redirecionamento de rotas para hospedagens compatíveis, como Netlify. Em outro provedor, configure todas as rotas (`/projetos`, `/sobre-mim` e `/projetos/:slug`) para retornarem `index.html`.
+O arquivo `public/_redirects` prepara as rotas para hospedagens compatíveis com Netlify.

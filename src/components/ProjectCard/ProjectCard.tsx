@@ -1,4 +1,4 @@
-import { FiArrowUpRight, FiBookOpen } from 'react-icons/fi';
+import { FiArrowUpRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import type { Project } from '@/types/portfolio.types';
 import { StatusBadge } from '@/components/StatusBadge/StatusBadge';
@@ -18,8 +18,6 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-  const hasCaseStudy = Boolean(project.caseStudy);
-
   return (
     <Card>
       <CoverLink to={`/projetos/${project.slug}`} aria-label={`Ver ${project.title}`}>
@@ -46,11 +44,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
               Ver projeto <FiArrowUpRight aria-hidden="true" />
             </Link>
           )}
-          {hasCaseStudy && (
-            <Link to={`/projetos/${project.slug}`}>
-              <FiBookOpen aria-hidden="true" /> Estudo de caso
-            </Link>
-          )}
+          {/* A ação "Estudo de caso" foi ocultada; a imagem ainda abre os detalhes do projeto. */}
         </Actions>
       </CardFooter>
     </Card>
