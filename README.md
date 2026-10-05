@@ -41,6 +41,7 @@ Nesse arquivo ficam:
 - Odisseia Wiki: `src/assets/images/OdisseiaWikiBanner.png`
 - GameHub: `src/assets/images/GameHubBanner.png`
 - Guiding Grace: `src/assets/images/GuidingGraceBanner.png`
+- MR Radar: `src/assets/images/MRRadarBanner.png`
 
 As capas de projeto funcionam melhor em proporção 16:9.
 

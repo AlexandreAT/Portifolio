@@ -1,6 +1,7 @@
 import profileImage from '@/assets/images/BannerPerfil.png';
 import gameHubCover from '@/assets/images/GameHubBanner.png';
 import guidingGraceCover from '@/assets/images/GuidingGraceBanner.png';
+import mrRadarCover from '@/assets/images/MRRadarBanner.png';
 import odisseiaCover from '@/assets/images/OdisseiaWikiBanner.png';
 import resumePdf from '@/assets/documents/curriculo-alexandre-arribamar.pdf';
 import solidCertificatePdf from '@/assets/documents/certificates/csharp-solid.pdf';
@@ -209,6 +210,53 @@ export const projects: Project[] = [
     },
   },
   {
+    id: 'mr-radar',
+    slug: 'mr-radar',
+    title: 'MR Radar',
+    shortDescription:
+      'Dashboard full stack para consultar, em uma tela só, os comentários de revisão de Merge Requests e Pull Requests.',
+    description:
+      'Dashboard somente leitura que reúne os comentários de revisão de Merge Requests (GitLab) e Pull Requests (GitHub), com arquivo, linha e trecho de código prontos para copiar. Roda localmente com o token do próprio usuário e possui uma demonstração pública com dados fictícios.',
+    role: 'Desenvolvimento Full Stack',
+    category: 'Full Stack',
+    technologies: [
+      'React',
+      'TypeScript',
+      'Node.js',
+      'Express',
+      'Vite',
+      'Styled Components',
+      'GitLab API',
+      'GitHub API',
+    ],
+    platform: 'Web',
+    status: ProjectStatus.ONLINE,
+    coverImage: mrRadarCover,
+    projectUrl: 'https://mr-radar-demo.netlify.app',
+    repositoryUrl: 'https://github.com/AlexandreAT/MR-Radar',
+    featured: true,
+    priority: 3,
+    caseStudy: {
+      overview:
+        'Uma ferramenta criada para facilitar o dia a dia com revisões de código, reunindo em uma única tela os comentários de um Merge Request ou Pull Request, sem precisar abrir thread por thread.',
+      objective:
+        'Facilitar a consulta dos comentários de revisão, reunindo cada um com o seu contexto de código e deixando-os prontos para copiar.',
+      audience:
+        'Desenvolvedores que recebem e tratam comentários de revisão de código no GitLab ou no GitHub.',
+      features: [
+        'Lista dos Merge Requests e Pull Requests abertos',
+        'Comentários com arquivo, linha e trecho de código',
+        'Filtros por status, rótulo e revisor, com cópia formatada',
+        'Painel de horas da semana no GitLab',
+      ],
+      architecture:
+        'SPA React desacoplada de uma API local em Node.js e Express, com adapters separados para GitLab, GitHub e para a demonstração com dados fictícios.',
+      technicalDecisions: [
+        'Uso de adapters por provedor para compartilhar a mesma lógica entre GitLab e GitHub, com bloqueio de escrita no cliente HTTP e no backend para manter a ferramenta somente leitura.',
+      ],
+    },
+  },
+  {
     id: 'guiding-grace',
     slug: 'guiding-grace',
     title: 'Guiding Grace',
@@ -233,7 +281,7 @@ export const projects: Project[] = [
     projectUrl: 'https://guidinggrace.netlify.app',
     repositoryUrl: 'https://github.com/AlexandreAT/Guiding-Grace',
     featured: true,
-    priority: 3,
+    priority: 4,
     caseStudy: {
       overview:
         'Um guia visual e interativo em português para consultar regiões, mapas, builds e conteúdos de progressão de Elden Ring.',
